@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="main-container__all-comments">
+    <app-comment
+      *ngFor="let comment of commentsData"
+      [comment]="comment"
+      [currentUserName]="currentUserName"
+      [currentUser]="currentUser"
+      [activeForm]="activeForm"
+      (updateComment)="updateComment($event)"
+      (deleteComment)="deleteCommment($event)"
+      (addNewReply)="addNewReply($event)"
+      (activatingForm)="activatingForm($event)"
+      (increaseScore)="increaseScore($event)"
+      (decreaseScore)="decreaseScore($event)"
+
+    ></app-comment>
+    <app-comment-form
+      [currentUser]="currentUser"
+      [submitState]="submitState.write"
+      (submitHandler)="addNewComment({ content: $event, user: currentUser })"
+    ></app-comment-form>
+  </div>
+</div>
